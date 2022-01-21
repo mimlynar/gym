@@ -6,7 +6,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
-@RepositoryRestResource(collectionResourceRel = "gyms", path = "gym")
 public interface GymRepository extends PagingAndSortingRepository<Gym, Long> {
     List<Gym> findByName(@Param("name") String name);
 }
