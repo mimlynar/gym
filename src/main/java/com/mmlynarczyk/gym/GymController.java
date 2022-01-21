@@ -16,9 +16,10 @@ public class GymController {
 
     private final GymRepository gymRepository;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Gym> getGym(@PathVariable Long id) {
-        return gymRepository.findById(id)
+
+    @GetMapping("/{code}")
+    public ResponseEntity<Gym> getByCode(@PathVariable String code) {
+        return gymRepository.findByCode(code)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
